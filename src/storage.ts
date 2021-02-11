@@ -6,7 +6,7 @@ export default new Proxy(localStorage, {
 	 * Parse the stringified value before returning it.
 	 */
 	get(target, prop: string) {
-		const value = target[prop];
+		const value = target[prop] ?? target.getItem(prop);
 		return typeof value === 'function' ? value.bind(target) : JSON.parse(value);
 	},
 });

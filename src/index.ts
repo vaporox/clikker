@@ -75,28 +75,29 @@ function reset() {
 	const confirmed = confirm('Are you sure? This will reset all your progress!');
 	if (!confirmed) return;
 
+	const { dark } = storage;
 	storage.clear();
+	storage.dark = dark;
+
 	window.location.reload();
 }
 
 /**
  * Initialize the game when loading the page.
  */
-window.onload = function() {
+window.onload = () => {
 	$('generate').onclick = generate;
 	$('upgrade').onclick = upgrade;
 	$('toggle').onclick = toggle;
 	$('darkmode').onclick = darkmode;
 	$('reset').onclick = reset;
 
-	if (!storage.length) {
-		storage.add = 1;
-		storage.autoadd = 20;
-		storage.clicks = 0;
-		storage.dark = false;
-		storage.interval = null;
-		storage.upgradeAt = 100;
-	}
+	storage.add ??= 1;
+	storage.autoadd ??= 20;
+	storage.clicks ??= 0;
+	storage.dark ??= false;
+	storage.interval ??= null;
+	storage.upgradeAt ??= 100;
 
 	if (storage.interval) storage.interval = window.setInterval(() => click(storage.autoadd), 1000);
 
