@@ -1,7 +1,19 @@
 /**
+ * List of all variables used on the website.
+ */
+interface ClikkerStorage extends Storage {
+	add: number;
+	autoadd: number;
+	clicks: number;
+	dark: boolean;
+	interval: number;
+	upgradeAt: number;
+}
+
+/**
  * Used for easier interaction with the local storage.
  */
-export default new Proxy(localStorage, {
+export default new Proxy(localStorage as ClikkerStorage, {
 	/**
 	 * Parse the stringified value before returning it.
 	 */
@@ -10,17 +22,3 @@ export default new Proxy(localStorage, {
 		return typeof value === 'function' ? value.bind(target) : JSON.parse(value);
 	},
 });
-
-/**
- * Declare all the values needed for Clikker.
- */
-declare global {
-	interface Storage {
-		add: number;
-		autoadd: number;
-		clicks: number;
-		dark: boolean;
-		interval: number;
-		upgradeAt: number;
-	}
-}

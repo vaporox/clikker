@@ -1,7 +1,7 @@
 /**
  * List of all elements used on the website.
  */
-interface Elements {
+interface ClikkerElements {
 	generate: HTMLButtonElement;
 	upgrade: HTMLButtonElement;
 	toggle: HTMLButtonElement;
@@ -17,6 +17,6 @@ interface Elements {
  * Get the element with the specified ID.
  * @param id - The ID of the element
  */
-export default function $<T extends keyof Elements>(id: T) {
-	return document.getElementById(id) as Elements[T];
+export default function $<T extends keyof ClikkerElements>(id: T) {
+	return document.getElementById(id) as ClikkerElements[T];
 }
