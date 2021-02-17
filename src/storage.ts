@@ -6,7 +6,7 @@ interface ClikkerStorage extends Storage {
 	autoadd: number;
 	clicks: number;
 	dark: boolean;
-	interval: number;
+	interval: number | null;
 	upgradeAt: number;
 }
 
