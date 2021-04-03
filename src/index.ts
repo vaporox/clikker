@@ -85,12 +85,12 @@ function reset() {
 /**
  * Initialize the game when loading the page.
  */
-window.onload = () => {
-	$('generate').onclick = generate;
-	$('upgrade').onclick = upgrade;
-	$('toggle').onclick = toggle;
-	$('darkmode').onclick = darkmode;
-	$('reset').onclick = reset;
+window.addEventListener('load', () => {
+	$('generate').addEventListener('click', generate);
+	$('upgrade').addEventListener('click', upgrade);
+	$('toggle').addEventListener('click', toggle);
+	$('darkmode').addEventListener('click', darkmode);
+	$('reset').addEventListener('click', reset);
 
 	storage.add ??= 1;
 	storage.autoadd ??= 20;
@@ -103,4 +103,4 @@ window.onload = () => {
 
 	if (storage.clicks) updateComponents();
 	updateColors();
-};
+});

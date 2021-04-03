@@ -16,6 +16,8 @@ interface ClikkerStorage extends Storage {
 export default new Proxy(localStorage as ClikkerStorage, {
 	/**
 	 * Parse the stringified value before returning it.
+	 * @param target - The local storage
+	 * @param prop - The property that should be returned
 	 */
 	get(target, prop: string) {
 		const value = target[prop] ?? target.getItem(prop);
