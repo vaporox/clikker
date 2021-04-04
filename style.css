@@ -2,13 +2,14 @@ body {
 	margin: 5%;
 	text-align: center;
 	font-family: Bahnschrift, sans-serif;
-	font-size: 26;
+	font-size: 26px;
 	background-image: linear-gradient(#9c9, #9a9);
+	background-attachment: fixed;
 }
 
 button {
 	padding: 10px;
 	margin: 10px;
 	font-family: Bahnschrift, sans-serif;
-	font-size: 14;
+	font-size: 14px;
 }
