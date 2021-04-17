@@ -1,5 +1,5 @@
-import $ from './elements';
-import storage from './storage';
+import { $ } from './elements.js';
+import { storage } from './storage.js';
 
 /**
  * Update all components.

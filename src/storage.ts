@@ -13,7 +13,7 @@ interface ClikkerStorage extends Storage {
 /**
  * Used for easier interaction with the local storage.
  */
-export default new Proxy(localStorage as ClikkerStorage, {
+export const storage = new Proxy(localStorage as ClikkerStorage, {
 	/**
 	 * Parse the stringified value before returning it.
 	 * @param target - The local storage

@@ -17,6 +17,6 @@ interface ClikkerElements {
  * Get the element with the specified ID.
  * @param id - The ID of the element
  */
-export default function $<T extends keyof ClikkerElements>(id: T) {
+export function $<T extends keyof ClikkerElements>(id: T) {
 	return document.getElementById(id) as ClikkerElements[T];
 }

@@ -1,11 +1,8 @@
-/**
- * Webpack configuration used in this project
- * @type {import('webpack').Configuration}
- */
-module.exports = {
+export default {
 	entry: './dist/index.js',
+	mode: 'production',
 	output: {
 		filename: 'script.js',
-		path: __dirname,
+		path: new URL('.', import.meta.url).pathname,
 	},
 };
