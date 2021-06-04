@@ -1,9 +1,6 @@
 import { $ } from './elements.js';
 import { storage } from './storage.js';
 
-/**
- * Update all components.
- */
 function updateComponents() {
 	$('upgrade').disabled = storage.clicks < storage.upgradeAt;
 	$('toggle').disabled = storage.upgradeAt <= 800;
@@ -14,33 +11,20 @@ function updateComponents() {
 	$('autoclicker').innerText = `Autoclicker${storage.upgradeAt <= 800 ? ' at: 800 clicks' : `: ${storage.autoadd} clicks`}`;
 }
 
-/**
- * Add a specific amount to the click counter.
- * @param amount - The amount of clicks that should be added
- */
 function click(amount: number) {
 	storage.clicks += amount;
 	updateComponents();
 }
 
-/**
- * Update all colors.
- */
 function updateColors() {
 	document.body.style.backgroundImage = `linear-gradient(${storage.dark ? '#022, #011' : '#9c9, #9a9'})`;
 	document.body.style.color = storage.dark ? 'white' : 'black';
 }
 
-/**
- * Generate the clicks that you get by pressing the button.
- */
 function generate() {
 	click(storage.add);
 }
 
-/**
- * Apply an upgrade and remove the needed clicks from the click counter.
- */
 function upgrade() {
 	storage.add *= 2;
 	storage.upgradeAt *= 2;
@@ -51,26 +35,17 @@ function upgrade() {
 	click(storage.upgradeAt / -2);
 }
 
-/**
- * Enable or disable the autoclicker.
- */
 function toggle() {
 	if (!storage.interval) return storage.interval = window.setInterval(() => click(storage.autoadd), 1000);
 	clearInterval(storage.interval);
 	storage.interval = null;
 }
 
-/**
- * Enable or disable dark mode.
- */
 function darkmode() {
 	storage.dark = !storage.dark;
 	updateColors();
 }
 
-/**
- * Reset the game and reload the page.
- */
 function reset() {
 	const confirmed = confirm('Are you sure? This will reset all your progress!');
 	if (!confirmed) return;
@@ -82,9 +57,6 @@ function reset() {
 	window.location.reload();
 }
 
-/**
- * Initialize the game when loading the page.
- */
 window.addEventListener('load', () => {
 	$('generate').addEventListener('click', generate);
 	$('upgrade').addEventListener('click', upgrade);
