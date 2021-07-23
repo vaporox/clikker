@@ -3,8 +3,8 @@
 	"version": "0.1.0",
 	"description": "A simple clicker game",
 	"author": "Vaporox",
-	"repository": "vaporox/clikker",
-	"license": "MIT",
+	"repository": "https://github.com/vaporox/clikker",
+	"license": "ISC",
 	"main": "dist/index.js",
 	"type": "module",
 	"scripts": {
@@ -12,7 +12,7 @@
 	},
 	"devDependencies": {
 		"typescript": "^4.3.5",
-		"webpack": "^5.41.1",
+		"webpack": "^5.46.0",
 		"webpack-cli": "^4.7.2"
 	}
 }
